@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_componentlibrary/home_screen.dart';
+import 'package:flutter_componentlibrary/presentation/airbnb_home_view.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized(); // Ensure binding
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []); 
   runApp(const MainApp());
 }
 
@@ -35,6 +39,15 @@ class HomeLauncher extends StatelessWidget {
                 );
               },
               child: const Text('Morphism Ui'),
+            ),
+            OutlinedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Dashboard()),
+                );
+              },
+              child: const Text('Infinite Scrolling'),
             ),
           ],
         ),
